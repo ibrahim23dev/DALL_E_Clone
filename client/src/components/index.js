@@ -1,7 +1,7 @@
 import Card from "./Card";
 import FromField from "./FromField";
-import loder from "./loder";
+import Loader from "./Loader";
 
 export {
-    Card,FromField,loder
+    Card,FromField,Loader
 }
