@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Card, FromField, Loader } from '../components';
 function Home() {
-  const [loader, setloader] = useState(false);
+  const [loader, setloader] = useState(true);
   const [allPost, setallpost] = useState(null);
   const [searchText, SetSearchText] = useState('abc');
 

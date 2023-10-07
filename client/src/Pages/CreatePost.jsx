@@ -13,25 +13,26 @@ function handleSubmit() {
 }
 
 function handleChange(e) {
-  
+  setForm({...form, [e.target.name]: e.target.value})
 }
 function handleisSurpriseMe() {
-  
+  const randomPrompt = getRandompromot(form.prompt)
+  setForm({...form, prompt: randomPrompt})
 }
 
 
 function CreatePost() {
   const navigate = useNavigate();
-  const [form, setform] = useState({
+  const [form, setForm] = useState({
     name: "",
     prompt: "",
     photo: "",
   });
   const [generatingImage, setgeneratingImage] = useState(false);
-  const [Loader, setLoader] = useState(true);
+  const [loader , setloader] = useState(false);
   return (
-    <section className='max-w-7xl max-auto'>
-      <div>
+    <section className='max-w-7xl max-auto items-center justify-center flex'>
+      <div className='max-w-7xl max-auto items-center justify-center '>
         <h1 className='text-[32px]'>Create</h1>
         <p className='mt-4 text-[#666e75] text-[14px] max-w-[500px]'>Here we can Create AI image generator which we can use flexibility</p>
       </div>
@@ -84,13 +85,28 @@ function CreatePost() {
         </div>
         <div className='mt-5 flex gap-5'>
           <button
+           
             type='button'
             onClick={generatImage}
+             className= ' mt-10 text-white bg-green-700 font-medium rounded-md text-sm  sm:w-auto px-5 py-2.5 text-center items-center justify-center w-full'
           >
-            {generatImage ? '...generating' : 'Generate'}
+            {generatImage ? '...Generating' : 'Generate'}
             
         </button>
         </div>
+        <div className='mt-10'>
+          <p className='mt-2 text-[#132] text-[14px]'>
+            This is image generator app in this app we are try to calculate the problem statement and continous moiterating here
+</p>
+        </div>
+
+        <button
+          type='submit'
+          className='mt-10 text-white bg-green-700 font-medium rounded-md text-sm  sm:w-auto px-5 py-2.5 text-center items-center justify-center w-[100%]'
+          
+        >
+          Share your Community
+        </button>
          </form>
     </section>
   )

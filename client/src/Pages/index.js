@@ -1,5 +1,5 @@
 import Home from "./Home";
-import CreatePost from './CreatePost.1';
+import CreatePost from "./CreatePost";
 
 
 export {
