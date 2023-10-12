@@ -3,7 +3,7 @@ import * as dotenv from 'dotenv';
 import { OpenAI } from "openai";
 
 const openai = new OpenAI({
-    apiKey: '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',
+    apiKey: '',
 });
 
 const router = express.Router();
