@@ -75,21 +75,24 @@ function CreatePost() {
   async function generateImage() {
     if (form.prompt) {
       try {
-        setGeneratingImage(true);
-        const response = await fetch("http://localhost:8080/api/v1/dell", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ prompt: form.prompt }),
-        });
-        const data = await response.json();
-        setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
-      } catch (error) {
-        alert(error);
-      } finally {
-        setGeneratingImage(false);
-      }
+  const response = await fetch('http://localhost:8080/api/v1/dell', {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ prompt: form.prompt }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+
+  const data = await response.json();
+  setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
+} catch (error) {
+  console.error('Error:', error);
+}
+
     } else {
       alert("Please Enter a Prompt");
     }

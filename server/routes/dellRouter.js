@@ -3,11 +3,11 @@ import * as dotenv from 'dotenv';
 import { OpenAI } from "openai";
 
 const openai = new OpenAI({
-    apiKey: '',
+    apiKey: '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',
 });
 
 const router = express.Router();
-router.route('/').get((req, res) => {
+router.route('/').post((req, res) => {
     res.send("Hello, Assalamualikum, I'm Mohammad Ibrahim");
 });
 
